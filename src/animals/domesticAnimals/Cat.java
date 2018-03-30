@@ -11,7 +11,16 @@ public class Cat extends DomesticAnimal {
     public void say() {
 //        super.say(); // if keeping the parent's method is required
         System.out.println("I am saying maiu!");
+    }
 
+    public void say(String text) {  // method overloading - different types of the arguments are in use
+                                    // across various methods
+        System.out.println("cat says " + text);
+        super.protectedVoid();      // the protected method inherited from the Animal-class
+    }
+
+    public static void staticVoid() {       // Class-level access to the static method
+        System.out.println("staticVoid");
     }
 
     public static void main(String[] args) {
@@ -19,6 +28,10 @@ public class Cat extends DomesticAnimal {
         Cat cat = new Cat("Murka");
         cat.say();
         cat.livingWithPeople();
+        cat.say("Hi there!");
+        Cat.staticVoid(); // here we have got a Class-level access to the static method
+
+
 
         Dog dog = new Dog("Richy");
         dog.say();

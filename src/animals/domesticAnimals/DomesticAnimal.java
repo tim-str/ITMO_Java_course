@@ -10,6 +10,7 @@ public class DomesticAnimal extends Animal {    // the child-class inherits all 
 
     public void livingWithPeople() {
         System.out.println("I can live with my host");
+        super.protectedVoid();
     }
 
 //    public static void  main(String[] args) {
