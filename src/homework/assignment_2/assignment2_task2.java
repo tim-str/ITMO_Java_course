@@ -1,9 +1,11 @@
+package homework.assignment_2;
+
 import java.util.Arrays;
 
 public class assignment2_task2 {
     public static void main(String[] args) {
         int a = 1; // the left end of the interval
-        int b = 99; // the right end of the interval
+        int b = 199; // the right end of the interval
         int n;
         int trueLeft;
         int trueRight;

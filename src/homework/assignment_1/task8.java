@@ -1,6 +1,5 @@
 package homework.assignment_1;
 
-import javax.swing.plaf.synth.SynthEditorPaneUI;
 import java.util.*;
 
 import static java.lang.System.in;

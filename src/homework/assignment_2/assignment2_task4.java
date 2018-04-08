@@ -1,8 +1,10 @@
+package homework.assignment_2;
+
 import java.util.Arrays;
 
 public class assignment2_task4 {
     public static void main(String[] args) {
-        int dimArray = 5;
+        int dimArray = 15;
         int[] rndArray1 = new int[dimArray];
         int[] rndArray2 = new int[dimArray];
         int count = 0;

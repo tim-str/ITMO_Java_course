@@ -1,3 +1,5 @@
+package homework.assignment_2;
+
 import java.util.*;
 
 public class assignment2_task6 {
@@ -28,7 +30,7 @@ public class assignment2_task6 {
 
             for (int index = 0; index <= dimArray - 1; index++) {
 
-                rndArray1[index] = (int) Math.round(Math.random() * 10 - 5);
+                rndArray1[index] = (int) Math.round(Math.random() * 20 - 5);
 
             }
             System.out.println(Arrays.toString(rndArray1));

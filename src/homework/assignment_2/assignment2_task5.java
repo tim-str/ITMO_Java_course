@@ -1,9 +1,11 @@
+package homework.assignment_2;
+
 import java.util.Arrays;
 
 public class assignment2_task5 {
 
     public static void main(String[] args) {
-        int dimArray = 4;
+        int dimArray = 11;
         int[] rndArray1 = new int[dimArray];
 
         int temp;
@@ -22,6 +24,7 @@ public class assignment2_task5 {
                 if (temp >= 10) {
                     rndArray1[index] = temp;
                     index++;
+//                    System.out.println("Original array: " + Arrays.toString(rndArray1));
                 }
             }
             while (index <= dimArray - 1);

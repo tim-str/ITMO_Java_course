@@ -1,3 +1,5 @@
+package homework.assignment_2;
+
 import java.util.Arrays;
 
 public class assignment2_task3 {
@@ -10,8 +12,6 @@ public class assignment2_task3 {
             rndArray[index] = (int) Math.round(Math.random() * 10);
 
             if (rndArray[index] % 2 == 0) { count++; }
-
-
         }
 
         System.out.println(Arrays.toString(rndArray)); // displaying the array generated
