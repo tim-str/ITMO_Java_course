@@ -17,9 +17,14 @@ public class assignment2_task6 {
 
             int in = typeIn.nextInt();
 
-            if (in % 2 == 0) {
-                symmetry = true;
-                dimArray = in;
+            if (in <= 0) { System.out.println("Please enter a positive number to set up the array dimension value"); }
+                else {
+
+                if (in % 2 == 0) {
+                    symmetry = true;
+                    dimArray = in;
+                }
+
             }
 
         }
