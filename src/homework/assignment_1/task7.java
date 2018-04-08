@@ -1,3 +1,5 @@
+package homework.assignment_1;
+
 import java.lang.Math;
 
 public class task7 {
