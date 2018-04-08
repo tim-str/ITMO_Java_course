@@ -1,3 +1,5 @@
+package homework.assignment_1;
+
 import java.lang.Math;
 
 public class assignment_1_the_tram {
@@ -7,7 +9,7 @@ public class assignment_1_the_tram {
         int count =0;
         int dec6, dec5, dec4, dec3, dec2, dec1;
 
-        for (int ticketNumber = 100000; ticketNumber <= 999999; ticketNumber++) {
+        for (int ticketNumber = 1000; ticketNumber <= 999999; ticketNumber++) {
 
             dec6 = ticketNumber % 1000000 / 100000;
             dec5 = ticketNumber % 100000 / 10000;
