@@ -1,5 +1,6 @@
-import static com.sun.org.apache.xalan.internal.lib.ExsltMath.power;
-import static com.sun.org.apache.xalan.internal.lib.ExsltMath.sqrt;
+package homework.assignment_1;
+
+import static com.sun.org.apache.xalan.internal.lib.ExsltMath.*;
 
 public class task2 {
     public static void main(String[] args) {

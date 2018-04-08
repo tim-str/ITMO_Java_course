@@ -1,6 +1,8 @@
+package homework.assignment_1;
+
 import static java.lang.Math.abs;
 
-// the code by STR as of 22/03/2018
+// the code written by STR as of 22/03/2018
 public class task1 {
     public static void main(String[] args) {
         double m = 8.45;

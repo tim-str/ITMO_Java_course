@@ -1,9 +1,11 @@
+package homework.assignment_1;
+
 import java.lang.Math;
 
 public class task3 {
     public static void main(String[] args) {
 
-        int challenge = 666; /* the input value */
+        int challenge = 796; /* the input value */
 
         int dec2 = challenge%1000/100;
         int dec1 = challenge%100/10;
