@@ -1,3 +1,5 @@
+package homework.assignment_1;
+
 public class assignment_1_Fibonachi {
     public static void main(String[] args) {
         // to print out the first 11 members of the F-sequence
