@@ -44,15 +44,15 @@ public class Library {
         Book book1 = new Book("The war and peace","Leo Tolstoy", 589);
         Book book2 = new Book("Ulyses", "James Joyce", 896);
         Book book3 = new Book("Lolita", "Nabokov", 452);
-        Book book4 = new Book("Brief history of time", "Hocking", 156);
-        // Book book5 = new Book("Ulyses", "James Joyce", 800);
+        Book book4 = new Book("Brief history of time", "Hawking", 156);
 
-        Library afterJoyce = new Library(4);
+        // Book book5 = new Book("Ulysses", "James Joyce", 800);
+
+        Library afterJoyce = new Library(3);
         afterJoyce.depositBooks(book1, book2, book3, book4);
         afterJoyce.checkIfBookThere(book2);
 
     }
-
 }
 
 class Book {
@@ -67,6 +67,5 @@ class Book {
                 else { System.out.println("Please provide a correct number of pages in the book " + this.title + " written by " + this.author);
                 System.exit(10); }
     }
-
 }
 
