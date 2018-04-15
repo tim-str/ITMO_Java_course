@@ -1,4 +1,4 @@
-package new_calc;
+package homework.assignment_4.new_calc;
 
 public class Addition extends OperationWrapper {
 

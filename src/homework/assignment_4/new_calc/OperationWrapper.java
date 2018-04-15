@@ -1,6 +1,6 @@
-package new_calc;
+package homework.assignment_4.new_calc;
 
-public class OperationWrapper {
+abstract class OperationWrapper {
 
     String type;
 
@@ -11,5 +11,4 @@ public class OperationWrapper {
     protected String getType() {
         return this.type;
     }
-
 }

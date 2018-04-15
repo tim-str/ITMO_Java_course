@@ -1,6 +1,4 @@
-package new_calc;
-
-import calculator.calculator.Oper;
+package homework.assignment_4.new_calc;
 
 public class Subtraction extends OperationWrapper {
 

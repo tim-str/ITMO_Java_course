@@ -42,5 +42,8 @@ public class CalcDeskTop {
         CalcDeskTop aDeskTop_4 = new CalcDeskTop(new Multiplication(), 13, 5);
         System.out.println("Having entered these two operands " + aDeskTop_4.getOperand1() + " || " + aDeskTop_4.getOperand2() +
                 ", the following is the result: " + aDeskTop_4.getResult());
+        CalcDeskTop aDeskTop_5 = new CalcDeskTop(new Division(), 13, 0);
+        System.out.println("Having entered these two operands " + aDeskTop_5.getOperand1() + " || " + aDeskTop_5.getOperand2() +
+                ", the following is the result: " + aDeskTop_5.getResult());
     }
 }
