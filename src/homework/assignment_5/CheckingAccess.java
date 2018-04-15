@@ -14,13 +14,13 @@ public class CheckingAccess {
     CheckingAccess() {
     }
 
-    int accessCheck() {
+    boolean accessCheck() {
         try {
             File cfg = new File(this.path);
             List<String> lines = Files.readAllLines(cfg.toPath());
-            return 0;
+            return true;
         } catch (Exception e) {
-            return 11;
+            return false;
         }
     }
 }
