@@ -1,5 +1,7 @@
 package homework.assignment_6;
 
+import com.horstmann.corejava.Employee;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,7 +9,10 @@ import java.util.*;
 
 public class CountingWords {
 
-    public static void getTop10(HashMap hashMap) {
+    public static void getTop10(Map<String, Integer> hashMap) {
+        for(Map.Entry e : hashMap.entrySet()) {
+
+        }
 
     }
 
@@ -52,15 +57,14 @@ public class CountingWords {
                     }
                 }
             }
-            wordsMap.forEach((k, v) ->
-                    System.out.println("key=" + k + ", value=" + v));
         }
 
         catch (IOException e) {
 
         }
         finally {
-
+            wordsMap.forEach((k, v) ->
+                    System.out.println("key=" + k + ", value=" + v));
         }
 
         Map<String, Integer> top10Map = new HashMap<>();
@@ -74,7 +78,6 @@ public class CountingWords {
                     j = (Integer) entry.getValue();
                     key = (String) entry.getKey();
                 }
-
             }
 
             if (!top10Map.containsKey(key)) top10Map.put(key,j);
