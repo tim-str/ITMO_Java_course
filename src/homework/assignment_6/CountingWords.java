@@ -10,22 +10,13 @@ import java.util.*;
 
 public class CountingWords {
 
-    public static HashMap getGroupedWords(HashMap hashMap, boolean exclusions) {
-
-        return null;
-    }
-
-    public static void getFreqLetters(HashMap hashMap) {
-
-    }
-
     public static void main(String[] args) {
 
         Map<String, Integer> wordsMap = new HashMap<>();
 
         try {
 
-            File inFile = new File("src/homework/assignment_6/wp.txt");
+            File inFile = new File("src/homework/assignment_6/wp_10.txt");
             List lst = Files.readAllLines(inFile.toPath());
 //            System.out.println(lst);
             Iterator<String> iterator = lst.iterator();
