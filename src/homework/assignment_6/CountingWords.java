@@ -19,15 +19,6 @@ public class CountingWords {
         Map<String, Integer> wordsMap = new HashMap<>();
         List lst = null;
 
-        Map<String, Integer> alphabet = new HashMap<>();
-        alphabet.put("A",1); alphabet.put("B",2); alphabet.put("C",3); alphabet.put("D",4);
-        alphabet.put("E",5); alphabet.put("F",6); alphabet.put("G",7); alphabet.put("H",8);
-        alphabet.put("I",9); alphabet.put("J",10); alphabet.put("K",11); alphabet.put("L",12);
-        alphabet.put("M",13); alphabet.put("N",14); alphabet.put("O",15); alphabet.put("P",16);
-        alphabet.put("Q",17); alphabet.put("R",18); alphabet.put("S",19); alphabet.put("T",20);
-        alphabet.put("U",21); alphabet.put("V",22); alphabet.put("W",23); alphabet.put("X",24);
-        alphabet.put("Y",25); alphabet.put("Z",26);
-
         try {
 
             File inFile = new File("src/homework/assignment_6/wp.txt");
@@ -54,7 +45,7 @@ public class CountingWords {
 //                for (int i = 0; i < outString.length; i++) System.out.println("i = " + i + outString[i]);
 
                 for (String str : outString) {
-                    if (!(str.isEmpty() || str.trim().equals(""))) {
+                    if (!(str.isEmpty())) {
 
                         // capturing the case of a single dash
                         if (str.contains("-") && !str.contains("--")) {
