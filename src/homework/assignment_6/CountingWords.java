@@ -1,24 +1,43 @@
 package homework.assignment_6;
 
 import com.horstmann.corejava.Employee;
+import com.sun.xml.internal.fastinfoset.util.CharArray;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.sql.Array;
 import java.util.*;
+import java.util.regex.Pattern;
+
+import static homework.assignment_6.Metrics.writeOutInMap;
 
 public class CountingWords {
 
     public static void main(String[] args) {
 
         Map<String, Integer> wordsMap = new HashMap<>();
+        List lst = null;
+
+        Map<String, Integer> alphabet = new HashMap<>();
+        alphabet.put("A",1); alphabet.put("B",2); alphabet.put("C",3); alphabet.put("D",4);
+        alphabet.put("E",5); alphabet.put("F",6); alphabet.put("G",7); alphabet.put("H",8);
+        alphabet.put("I",9); alphabet.put("J",10); alphabet.put("K",11); alphabet.put("L",12);
+        alphabet.put("M",13); alphabet.put("N",14); alphabet.put("O",15); alphabet.put("P",16);
+        alphabet.put("Q",17); alphabet.put("R",18); alphabet.put("S",19); alphabet.put("T",20);
+        alphabet.put("U",21); alphabet.put("V",22); alphabet.put("W",23); alphabet.put("X",24);
+        alphabet.put("Y",25); alphabet.put("Z",26);
 
         try {
 
-            File inFile = new File("src/homework/assignment_6/wp_10.txt");
-            List lst = Files.readAllLines(inFile.toPath());
-//            System.out.println(lst);
+            File inFile = new File("src/homework/assignment_6/wp.txt");
+            lst = Files.readAllLines(inFile.toPath());
+        }
+
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
             Iterator<String> iterator = lst.iterator();
 
             while (iterator.hasNext()) {
@@ -29,31 +48,49 @@ public class CountingWords {
 
                 for (int i = 0; i < inString.length; i++) {
                     if (!inString[i].isEmpty()) {
-                        outString[i] = inString[i].replaceAll("[^A-Za-z]", "");
+                        outString[i] = inString[i].replaceAll("[^A-Za-z^-]", "");
                     }
                 }
 //                for (int i = 0; i < outString.length; i++) System.out.println("i = " + i + outString[i]);
 
                 for (String str : outString) {
-                    if (!str.isEmpty()) {
-                        if (wordsMap.containsKey(str.toUpperCase())) {
-                            wordsMap.put(str.toUpperCase(), wordsMap.get(str.toUpperCase()) + 1); }
-                            else wordsMap.put(str.toUpperCase(), 1);
-                    }
+                    if (!(str.isEmpty() || str.trim().equals(""))) {
+
+                        // capturing the case of a single dash
+                        if (str.contains("-") && !str.contains("--")) {
+                            String[] extraWords = str.split("-");
+                            for (String se : extraWords) {
+                                writeOutInMap(wordsMap, se);
+                            }
+                        }
+                        else
+                            // capturing the case of a line with double dash
+                            if (str.contains("--")) {
+                                String[] doubleDashExtraWords = str.split("--");
+                                for (String de : doubleDashExtraWords) {
+
+                                    if (de.contains("-")) {
+                                        String[] SingleDashExtraWords = de.split("-");
+                                        for (String se : SingleDashExtraWords) {
+                                            writeOutInMap(wordsMap, se);
+                                        }
+                                    }
+                                    else {
+                                        writeOutInMap(wordsMap, de);
+                                    }
+                                }
+                            }
+                            else
+                                // regular case with no dashes in the line read
+                                writeOutInMap(wordsMap, str);
                 }
             }
         }
-
-        catch (IOException e) {
-
-        }
-        finally {
 
         // sub-task 1: Сосчитать частоту встречаемости слов в книге War and peace
         // outputting the whole list of the unique words encountered in the War & Peace by Leo Tolstoy
             wordsMap.forEach((k, v) ->
                     System.out.println("key=" + k + ", value=" + v));
-        }
 
         // sub-task 2: Собрать все слова в группы по количеству букв:
         // например, в одну группу попадут слова: [the, war, jar, get, met...], в другую [on, up, no, of...]

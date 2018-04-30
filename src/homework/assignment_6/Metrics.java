@@ -4,6 +4,12 @@ import java.util.*;
 
 class Metrics {
 
+    public static void writeOutInMap(Map<String, Integer> wordsMap, String key) {
+        if (wordsMap.containsKey(key.toUpperCase())) {
+            wordsMap.put(key.toUpperCase(), wordsMap.get(key.toUpperCase()) + 1); }
+        else wordsMap.put(key.toUpperCase(), 1);
+    }
+
     public static void getTop10(Map<String, Integer> hashMap) {
 
         // decoupling the method parameter from the original object to avoid object mutation
@@ -154,7 +160,7 @@ class Words2Letters {
         System.out.println("total = " + total);
 
         freqOnAlphabet.forEach((key, value) -> {
-            System.out.println("The frequency of letter " + key + " is " + String.format("%.0f%%",100*value/(double)total));
+            System.out.println("The frequency of letter " + key + " is " + String.format("%.2f%%",100*value/(double)total));
         });
     }
 }
