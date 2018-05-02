@@ -1,6 +1,7 @@
 package homework.assignment_8;
 
 import java.io.*;
+import java.util.Arrays;
 
 public class CopyingFileIoStreams {
     File file;
@@ -28,16 +29,22 @@ public class CopyingFileIoStreams {
             ) {
 
             byte[] buf = new byte[this.buffer];
-            int length;
+            int length; long bytes, buffers; bytes= buffers= 0;
             try {
-
                 while ((length = in.read(buf)) > 0) {
+                    // System.out.println(Arrays.toString(buf));
                     bout.write(buf, 0, length);
-                    out.write(bout.toByteArray());
+                    bytes += length;
                 }
+                bout.writeTo(out);
+                buffers = bout.toByteArray().length;
+
+                System.out.println("Bytes transferred: " + bytes);
+                System.out.println("The Buffer been in use: " + buffers);
                 return true;
             }
             catch (Exception e) {
+                System.out.println("Exception triggered...");
                 return false;
             }
         }
