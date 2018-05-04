@@ -18,5 +18,10 @@ public class Main {
         // CopyingFileIoStreams(File file, String destination, int buffer)
         CopyingFileIoStreams CopyCmd = new CopyingFileIoStreams(source,path,4096);
 
+        // Splitting the file designated earlier as the copy of source
+        CopyCmd.SplittingFile(CopyCmd.defineHowToSplit());
+
+        // Reconstructing the parts back into whole
+
     }
 }
