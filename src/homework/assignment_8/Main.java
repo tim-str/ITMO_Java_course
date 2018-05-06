@@ -2,6 +2,7 @@ package homework.assignment_8;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Main {
 
@@ -19,9 +20,16 @@ public class Main {
         CopyingFileIoStreams CopyCmd = new CopyingFileIoStreams(source,path,4096);
 
         // Splitting the file designated earlier as the copy of source
-        CopyCmd.SplittingFile(CopyCmd.defineHowToSplit());
+        String[] fileNames;
+        fileNames = CopyCmd.SplittingFile(CopyCmd.defineHowToSplit());
 
         // Reconstructing the parts back into whole
+        GluingFiles restoredFile = new GluingFiles(fileNames,4096);
+        File file = restoredFile.recreateFile();
+
+        // XOR-encryption
+        XORencryption encryptedFile = new XORencryption();
+        encryptedFile.encryptFile(file,"password");
 
     }
 }

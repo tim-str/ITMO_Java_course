@@ -84,11 +84,16 @@ public class CopyingFileIoStreams {
         }
     }
 
-    protected void SplittingFile(int[] size) throws IOException {
+    protected String[] SplittingFile(int[] size) throws IOException {
 
         String[] coreNameSplit = this.file.getName().split("[.]");
+        System.out.println("coreNameSplit[0]: " + this.destination + "||" + coreNameSplit[0]);
+        String[] fileNames = new String[3];
+        fileNames[0] = this.destination.concat(coreNameSplit[0].concat("_1.").concat(coreNameSplit[1]));
+        fileNames[1] = this.destination.concat(coreNameSplit[0].concat("_2.").concat(coreNameSplit[1]));
+        fileNames[2] = this.destination.concat("NEW - ").concat(file.getName());
 
-            try(
+        try(
                     // Opening a stream for reading byte-level data from the source file with buffered access
                     InputStream in = new BufferedInputStream(new FileInputStream(this.file));
                     // Capturing read data into a stream to output via an array of bytes
@@ -97,10 +102,16 @@ public class CopyingFileIoStreams {
                     // Opening an output stream to write byte-level data into a target copy of the file
                     OutputStream out1 = new BufferedOutputStream(
                             new FileOutputStream(
-                                    new File(this.destination.concat(coreNameSplit[0].concat("_1.").concat(coreNameSplit[1]))), false));
+                                    new File(this.destination.
+                                                    concat(coreNameSplit[0].
+                                                    concat("_1.").
+                                                    concat(coreNameSplit[1]))), false));
                     OutputStream out2 = new BufferedOutputStream(
                             new FileOutputStream(
-                                    new File(this.destination.concat(coreNameSplit[0].concat("_2.").concat(coreNameSplit[1]))), false));
+                                    new File(this.destination.
+                                                            concat(coreNameSplit[0].
+                                                            concat("_2.").
+                                                            concat(coreNameSplit[1]))), false));
                     // No need to create another buffer of data - just streaming what was read straight away
             ) {
 
@@ -109,17 +120,20 @@ public class CopyingFileIoStreams {
 
                 try {
                     while ((length = in.read(buf)) > 0) {
-                        // System.out.println(Arrays.toString(buf));
                         if (bytes <= size[0]) {
                             bout1.write(buf, 0, length);
-                            byte1 +=length;
-                        }
-                        else {
+                            byte1 += length;
+                        } else {
                             bout2.write(buf, 0, length);
-                            byte2 +=length;
+                            byte2 += length;
                         }
                         bytes += length;
                     }
+                }
+                catch (Exception e) {
+                    System.out.println("Exception triggered...");
+//
+                }
                     bout1.writeTo(out1);
                     bout2.writeTo(out2);
                     // buffers = bout.toByteArray().length;
@@ -127,11 +141,11 @@ public class CopyingFileIoStreams {
                     System.out.println("Total bytes transferred: " + bytes);
                     System.out.println("File1 bytes transferred: " + byte1);
                     System.out.println("File2 bytes transferred: " + byte2);
-                }
-                catch (Exception e) {
-                    System.out.println("Exception triggered...");
-                }
-            }
+                    System.out.println("Splitting succeeded - the files created are: ");
+                    System.out.println(fileNames[0]);
+                    System.out.println(fileNames[1]);
 
-    }
+                    return fileNames;
+            }
+        }
 }
