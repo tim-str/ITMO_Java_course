@@ -1,7 +1,6 @@
-package homework.assignment_8;
+package homework.assignment_8_new;
 
 import java.io.*;
-import java.util.Arrays;
 
 public class XORencryption {
 
@@ -18,7 +17,7 @@ public class XORencryption {
                                                                     concat(file.getName())), false));
         ) {
             System.out.println("The file name is: " + file.getPath());
-            byte[] buf = new byte[128];
+            byte[] buf = new byte[1024];
             int length; long byte1, bytes; byte1=bytes = 0;
             try {
                 while ((length = in1.read(buf)) > 0) {

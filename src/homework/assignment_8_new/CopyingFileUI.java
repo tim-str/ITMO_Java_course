@@ -1,7 +1,6 @@
-package homework.assignment_8;
+package homework.assignment_8_new;
 
 import java.io.File;
-import java.nio.file.FileSystems;
 import java.util.Scanner;
 
 public class CopyingFileUI {
