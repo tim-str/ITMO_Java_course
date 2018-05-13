@@ -27,8 +27,11 @@ public class Main {
         File file = restoredFile.recreateFile();
 
         // XOR-encryption
-        XORencryption encryptedFile = new XORencryption();
-        encryptedFile.encryptFile(file,"password");
+        XORencryption encrypted = new XORencryption();
+        File encryptedFile = encrypted.encryptFile(file,"password");
 
+        // XOR-decryption
+        XORdecryption decryptedFile = new XORdecryption();
+        decryptedFile.decryptFile(encryptedFile,"password");
     }
 }

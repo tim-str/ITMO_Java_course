@@ -87,7 +87,7 @@ public class CopyingFileIoStreams {
     protected String[] SplittingFile(int[] size) throws IOException {
 
         String[] coreNameSplit = this.file.getName().split("[.]");
-        System.out.println("coreNameSplit[0]: " + this.destination + "||" + coreNameSplit[0]);
+//        System.out.println("coreNameSplit[0]: " + this.destination + "||" + coreNameSplit[0]);
         String[] fileNames = new String[3];
         fileNames[0] = this.destination.concat(coreNameSplit[0].concat("_1.").concat(coreNameSplit[1]));
         fileNames[1] = this.destination.concat(coreNameSplit[0].concat("_2.").concat(coreNameSplit[1]));
